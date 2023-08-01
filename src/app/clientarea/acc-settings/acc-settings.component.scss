@@ -1,0 +1,13 @@
+.place_holder {
+    background: url('https://picsum.photos/200/300');
+    background-repeat: no-repeat;
+    background-size: cover;
+    // background-attachment: fixed;
+}
+
+.overview {
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: 0.8);
+    border-radius: 50%;
+}

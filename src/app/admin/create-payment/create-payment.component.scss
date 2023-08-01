@@ -1,0 +1,113 @@
+input[type=text], input[type=email], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid rgb(153, 38, 38);
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .responsive-table {
+    overflow-x: auto;
+  
+  }
+  
+  
+  
+  table.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    border-radius: 13px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .styled-table thead tr {
+    --tw-bg-opacity: 1;
+    background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
+    color: #ffffff;
+    text-align: left;
+  }
+  
+  thead {
+    background-size: cover;
+  }
+  
+  .styled-table th,
+  .styled-table td {
+    padding: 12px 15px;
+  }
+  
+  .styled-table tbody tr {
+    border-bottom: thin solid #dddddd;
+  }
+  
+  .styled-table tbody tr:nth-of-type(even) {
+    --tw-bg-opacity: 1;
+    background-color: rgba(219, 234, 254, var(--tw-bg-opacity));
+  }
+  
+  .styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+  }
+  
+  .icon-holder {
+    text-align: center;
+    margin-top: 40px;
+    height: 60%;
+    width: 60%;
+  }
+  
+  .amount-holder {
+    margin-top: 20px;
+    padding-bottom: 5px;
+  }
+  
+  .full-view {
+    font-weight: bold;
+  }
+  
+  .asset-header {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .asset-header {
+    border-bottom: 2px soild #000;
+    color: #fff;
+    border-radius: 5px;
+    background-size: cover;
+  }
+  
+  .asset-total {
+    font-size: 30px;
+    -webkit-text-stroke: 1px black;
+  }
+  
+  .asset-name {
+    font-size: 20px;
+  }
+  
+  .account-to-draw {
+    padding: 5px;
+  }
+  
+  .walletClass {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid rgb(153, 38, 38);
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  

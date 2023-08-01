@@ -1,0 +1,69 @@
+<div class="bg-gray-900 w-full h-screen-half relative">
+    <div class="grid grid-cols-1 md:grid-cols-2 px-2 md:px-5 pt-10 md:w-11/12 mx-auto">
+        <div class="flex flex-col space-y-4">
+            <div class="text-center md:text-left text-lg md:text-2xl font-bold uppercase text-gray-100">
+                FORTARIUM
+            </div>
+
+            <div class="w-3/12 mx-auto md:mx-0">
+                <div class="flex justify-around text-white">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-linkedin"></i>
+                </div>
+            </div>
+
+            <div class="text-left text-sm font-semibold text-gray-50 pt-2 hidden md:block">
+                © {{now_year}} Fortarium. All rights reserved.
+                <br />
+                Privacy Policy
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:text-sm text-xs pt-8 md:pt-0">
+            <div class="text-gray-50 font-bold flex flex-col  space-y-2">
+                <div class="md:text-xl text-sm font-bold text-gray-500 py-5 text-left md:w-10/12">
+                    Since 2015, Fortarium has invested in digital assets, blockchain network and decentralized real
+                    estate companies, providing investors with the full spectrum of exposure to the space.
+                </div>
+            </div>
+
+            <div class="text-gray-50 font-bold grid grid-cols-3 space-y-2 text-center">
+
+                <a routerLink="/">
+                    Home
+                </a>
+
+                <a routerLink="/about">
+                    About
+                </a>
+
+                <a routerLink="/contact_us">
+                    Contact Us
+                </a>
+
+
+                <a routerLink="/clientarea/invest">
+                    Invest
+                </a>
+
+                <a routerLink="/about">
+                    The Team
+                </a>
+
+                <a routerLink="/faq">
+                    FAQs
+                </a>
+                <a routerLink="/Privacy_Policy" class="col-span-3 text-center mt-2">
+                    Privacy Policy
+                </a>
+            </div>
+        </div>
+
+        <div class="text-center text-xs font-semibold text-gray-50 w-11/12 md:hidden block absolute bottom-5">
+            © {{now_year}} Fortarium. All rights reserved.
+            <br />
+            Privacy Policy
+        </div>
+    </div>
+</div>

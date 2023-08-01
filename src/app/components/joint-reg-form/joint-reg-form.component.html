@@ -1,0 +1,173 @@
+<div
+    class="h-80 md:w-7/12 w-11/12 shadow-md mx-auto bg-gradient-to-b from-black to-gold rounded-md mt-10 flex justify-center items-center">
+    <div class="text-center  w-full mx-auto text-gray-500 px-2">
+        <p class="py-5 md:text-lg text-md font-bold text-gray-300">Create Joint Account</p>
+
+        <p class="text-sm text-gray-300">Fortarium Finance is your guide to financial wellness. We'll help you
+            invest, save and
+            spend
+            smarter.
+        </p>
+
+        <p class="text-xs text-gray-300 italic">
+            <mat-icon class="text-xs pt-2">lock</mat-icon> Protected by bank-level security
+        </p>
+    </div>
+</div>
+
+<mat-card class="bg-white w-full mx-auto mt-12 px-5">
+
+    <form [formGroup]="regForm">
+        <p>
+            <mat-form-field class="md:w-5/12 w-full" appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName">
+                <mat-icon matSuffix>person</mat-icon>
+
+                <mat-error class="text-xs italic text-red-600"
+                    *ngIf="regValues.firstName.errors?.required && regValues.firstName.touched">
+                    Please input your name
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="md:ml-14 md:w-5/12 w-full">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName">
+                <mat-icon matSuffix>person</mat-icon>
+
+                <mat-error class="text-xs italic text-red-600"
+                    *ngIf="regValues.lastName.errors?.required && regValues.lastName.touched">
+                    This field is required
+                </mat-error>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="fill" class="md:w-11/12 w-full">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email">
+                <mat-icon matSuffix>alternate_email</mat-icon>
+
+                <mat-error class="text-xs italic text-red-600"
+                    *ngIf="regValues.email.errors?.required && regValues.email.touched">
+                    An email is required
+                </mat-error>
+
+                <mat-error class="text-xs italic text-red-600"
+                    *ngIf="regValues.email.errors?.email && regValues.email.touched">
+                    Please input a valid email
+                </mat-error>
+            </mat-form-field>
+        </p>
+
+
+        <p>
+            <mat-form-field appearance="fill" class="md:w-5/12 w-full">
+                <mat-label>Password</mat-label>
+                <input matInput type="{{inputType}}" formControlName="password">
+                <mat-icon matSuffix (click)="passType()">lock</mat-icon>
+
+                <mat-error class="text-xs italic text-red-600"
+                    *ngIf="regValues.password.errors?.required && regValues.password.touched">
+                    Password is required
+                </mat-error>
+
+                <mat-error class="text-xs italic text-red-600"
+                    *ngIf="regValues.password.errors?.minlength && regValues.password.touched">
+                    Password must be longer than 6
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="md:ml-14 md:w-5/12 w-full">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="{{inputType}}" formControlName="confirmPassword">
+
+                <mat-icon matSuffix (click)="passType()">enhanced_encryption</mat-icon>
+
+                <mat-error class="text-xs italic text-red-600"
+                    *ngIf="regValues.confirmPassword.errors?.required && regValues.confirmPassword.touched">
+                    This field is required
+                </mat-error>
+
+                <mat-error class="text-xs italic text-red-600"
+                    *ngIf="regValues.confirmPassword.errors?.minlength && regValues.confirmPassword.touched">
+                    Password must be more that 6
+                </mat-error>
+            </mat-form-field>
+        </p>
+
+        <div class="py-10">
+            <div class="container pb-5">
+                <div class="line"><mat-divider></mat-divider></div>
+                <div class="text mat-typography">Sub Account Holder</div>
+                <div class="line"><mat-divider></mat-divider></div>
+            </div>
+
+
+
+
+            <p>
+                <mat-form-field class="md:w-5/12 w-full" appearance="fill">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="sub_firstName">
+                    <mat-icon matSuffix>person</mat-icon>
+
+                    <mat-error class="text-xs italic text-red-600"
+                        *ngIf="regValues.firstName.errors?.required && regValues.firstName.touched">
+                        Please input your name
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="md:ml-14 md:w-5/12 w-full">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="sub_lastName">
+                    <mat-icon matSuffix>person</mat-icon>
+
+                    <mat-error class="text-xs italic text-red-600"
+                        *ngIf="regValues.lastName.errors?.required && regValues.lastName.touched">
+                        This field is required
+                    </mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field appearance="outline" class="md:w-11/12 w-full">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" formControlName="sub_email">
+                    <mat-icon matSuffix>alternate_email</mat-icon>
+
+                    <mat-error class="text-xs italic text-red-600"
+                        *ngIf="regValues.email.errors?.required && regValues.email.touched">
+                        An email is required
+                    </mat-error>
+
+                    <mat-error class="text-xs italic text-red-600"
+                        *ngIf="regValues.email.errors?.email && regValues.email.touched">
+                        Please input a valid email
+                    </mat-error>
+                </mat-form-field>
+            </p>
+        </div>
+        <section>
+            <mat-checkbox value="true" formControlName="TandC" class="text-sm">By signing up you agreeing that you are
+                18 years and
+                older, and
+                agree to the
+                <a class="text-indigo-500" href="#">terms
+                    and conditions</a>, <a class="text-indigo-500" href="#">Privacy
+                    policy</a> and <a class="text-indigo-500" href="#">Auto Debit Authorization</a>
+            </mat-checkbox>
+        </section>
+    </form>
+
+
+    <div class="w-4/5 py-5 uppercase mx-auto" mat-raised-button color="primary" fxLayout="row"
+        fxLayoutAlign="center center">
+        <button class="w-full uppercase  bg-gradient-to-b from-nevy to-gold" color="primary" mat-raised-button
+            (click)="register()" [disabled]="!regForm.valid">sign up</button>
+    </div>
+    <div class="to_reg text-gray-500 text-center text-sm">Already have an account ? <a class="text-indigo-500"
+            routerLink="../login"> Login</a></div>
+
+</mat-card>
+<div class="pb-20"></div>

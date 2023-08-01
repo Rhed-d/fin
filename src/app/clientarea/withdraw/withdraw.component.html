@@ -1,0 +1,72 @@
+<div class="pb-10 pt-20 bg-black px-2">
+    <div class="md:w-10/12 w-full mx-auto shadow-md shadow-gold rounded-md">
+        <div class="w-full justify-around md:px-5 px-2 py-10">
+            <p class="text-gray-500 pb-2 text-sm text-center font-bold ">
+                Make Withdrawal
+            </p>
+
+            <div class="">
+                <p class="text-gray-500 pb-2 text-sm  ">
+                    Select Investment
+                </p>
+
+                <mat-form-field class="w-full">
+                    <mat-label>
+                        Please select Investment
+                    </mat-label>
+                    <mat-select placeholder="Click here..." [(ngModel)]="id" class="w-full text-black"
+                        (ngModelChange)="getCurrentInvestment()">
+                        <mat-option *ngFor="let item of confirmedInvestments" [value]="item._id">
+                            <span class="flex justify-between">
+                                <span class="px-2">
+                                    {{item.InvestmentType}}
+                                </span>
+
+                                <span class="px-2">
+                                    {{item.packageType}}
+                                </span>
+
+                                <span class="px-2 border-l border-nevy">
+                                    ${{item.balance}}
+                                </span>
+                            </span>
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+
+            <div class="mt-10">
+                <p class="text-gray-500 pb-2 text-sm">
+                    Enter BTC Wallet Address
+                </p>
+                <mat-form-field class="w-full">
+                    <input matInput placeholder="BTC wallet address" [(ngModel)]="wallet" required>
+                </mat-form-field>
+
+            </div>
+
+            <div class="mt-10">
+                <p class="text-gray-500 pb-2 text-sm">
+                    Enter Amont
+                </p>
+
+                <mat-form-field class="w-full">
+                    <input matInput placeholder="0" [(ngModel)]="amount" type="number" (input)="checkBalance()">
+                    <p class="text-xs italic text-red-500">
+                        {{error_message}}
+                    </p>
+                </mat-form-field>
+            </div>
+
+            <mat-divider>
+            </mat-divider>
+
+            <div class="py-5 flex justify-center" color="primary">
+                <button mat-raised-button disabled={{isButtonDisabled}} (click)="updatewithdrawal()" class="bg-gold">
+                    Withdraw
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

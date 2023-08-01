@@ -1,0 +1,162 @@
+<div class="w-full pt-5 bg-black  mx-auto min-h-screen md:px-5 px-2">
+
+
+    <div
+        class="
+        animate__animated animate__slideInUp
+        hover:shadow-lg hover:shadow-gold shadow shadow-gold  rounded-md flex flex-1 items-center p-4 transition duration-500 ease-in-out transform hover:-translate-y-2 py-6 mt-3">
+        <div class="flex-1 pl-1 mr-16">
+            <div class="font-medium text-xl text-gray-300">
+                {{TotalDepositeValue | currency}}
+
+            </div>
+            <p class="text-gray-400">Total Deposit</p>
+        </div>
+        <div class="text-gray-300 text-bold flex flex-col mr-10 p-2">
+            <mat-icon>file_download</mat-icon>
+        </div>
+    </div>
+
+
+    <div
+        class="
+        animate__animated animate__slideInUp
+        hover:shadow-lg hover:shadow-gold shadow shadow-gold rounded-md flex flex-1 items-center p-4 transition duration-500 ease-in-out transform hover:-translate-y-2 py-6 mt-3">
+        <div class="flex-1 pl-1 mr-16">
+            <div class="font-medium text-xl text-gray-300">
+                {{TotalInvestmentCount}}
+
+            </div>
+            <p class="text-gray-400">Deposit Count</p>
+        </div>
+        <div class="text-gray-300 text-bold flex flex-col mr-10 p-2">
+            <mat-icon>recent_actors</mat-icon>
+        </div>
+    </div>
+
+
+    <div
+        class="
+        animate__animated animate__slideInUp
+        hover:shadow-lg hover:shadow-gold shadow shadow-gold rounded-md flex flex-1 items-center p-4 transition duration-500 ease-in-out transform hover:-translate-y-2 py-6 mt-3">
+        <div class="flex-1 pl-1 mr-16">
+            <div class="font-medium text-xl text-gray-300">
+                {{TotalPendingCount}}
+
+            </div>
+            <p class="text-gray-400">Pending Deposit Count</p>
+        </div>
+        <div class="text-gray-300 text-bold flex flex-col mr-10 p-2">
+            <mat-icon>recent_actors</mat-icon>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="mt-10 bg-gray-900 shadow-md shadow-gold rounded-md">
+        <div mat-subheader class="font-bold text-xl pl-5 py-5 text-gray-100">Pendings</div>
+        <mat-divider></mat-divider>
+        <div class="md:p-10 p-5">
+            <div class="responsive-table">
+                <table class="styled-table w-full">
+                    <thead>
+                        <tr back>
+                            <td>
+                                Package
+                            </td>
+                            <td>
+                                Amount
+                            </td>
+                            <td>
+                                ROI %
+                            </td>
+                            <td>
+                                Date
+                            </td>
+                            <td>
+                                Action
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let vest of pendingInvestments">
+                            <td>{{vest.packageType}}</td>
+                            <td>{{vest.amount}}</td>
+                            <td>{{vest.increament}}%</td>
+                            <td>{{vest.createdOn | date}}</td>
+                            <td>
+                                <button mat-raised-button>
+                                    Complete Now
+                                </button>
+
+
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div class="text-center mx-auto" *ngIf="pendingInvestments.length < 0">
+                    No Data
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="mt-10 bg-gray-900 shadow-md shadow-gold rounded-md">
+        <div mat-subheader class="font-bold text-xl pl-5 py-5 text-gray-100">Deposit History</div>
+        <mat-divider></mat-divider>
+        <div class="md:p-10 p-5">
+            <div class="currency_table responsive-table">
+                <table class="styled-table w-full">
+                    <thead>
+                        <tr back>
+                            <td>
+                                Package
+                            </td>
+                            <td>
+                                Amount
+                            </td>
+                            <td>
+                                ROI %
+                            </td>
+                            <td>
+                                Started
+                            </td>
+                            <td>
+                                Duration
+                            </td>
+                            <td>
+                                Balance
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let vest of confirmedInvestments">
+                            <td>{{vest.packageType}}</td>
+                            <td>{{vest.amount}}</td>
+                            <td>{{vest.increament}}% Daily</td>
+                            <td>{{vest.createdOn | date}}</td>
+                            <td>{{vest.duration}} </td>
+                            <td>{{vest.balance }} </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div class="text-center mx-auto" *ngIf="confirmedInvestments.length < 1">
+                    No Data
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="chart"></div>
+    <div class="pb-16"></div>
+</div>

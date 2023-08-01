@@ -1,0 +1,112 @@
+<div class="w-full pt-5 mx-auto min-h-screen md:px-5 px-2 bg-black">
+
+
+
+
+    <div
+        class="hover:shadow-lg hover:shadow-gold shadow shadow-gold  rounded-md flex flex-1 items-center p-4 transition duration-500 ease-in-out transform hover:-translate-y-2 py-6 mt-3">
+        <div class="flex-1 pl-1 mr-16">
+            <div class="font-medium text-xl text-gray-300">
+                {{TotalPartCount}}
+            </div>
+            <p class="text-gray-400">Total Returns Withdraws</p>
+        </div>
+        <div class="text-gray-300 text-bold flex flex-col mr-10 p-2">
+            <mat-icon>file_upload</mat-icon>
+        </div>
+    </div>
+
+
+
+    <div
+        class="hover:shadow-lg hover:shadow-gold shadow shadow-gold  rounded-md flex flex-1 items-center p-4 transition duration-500 ease-in-out transform hover:-translate-y-2 py-6 mt-3">
+        <div class="flex-1 pl-1 mr-16">
+            <div class="font-medium text-xl text-gray-300">
+                {{partTotalValue | currency}}
+            </div>
+            <p class="text-gray-400">Total Returns Withdraws Balance</p>
+        </div>
+        <div class="text-gray-300 text-bold flex flex-col mr-10 p-2">
+            <mat-icon>file_upload</mat-icon>
+        </div>
+    </div>
+
+
+    <div
+        class="hover:shadow-lg hover:shadow-gold shadow shadow-gold  rounded-md flex flex-1 items-center p-4 transition duration-500 ease-in-out transform hover:-translate-y-2 py-6 mt-3">
+        <div class="flex-1 pl-1 mr-16">
+            <div class="font-medium text-xl text-gray-300">
+                {{TotalCount}}
+            </div>
+            <p class="text-gray-400">Total Withdraws</p>
+        </div>
+        <div class="text-gray-300 text-bold flex flex-col mr-10 p-2">
+            <mat-icon>file_upload</mat-icon>
+        </div>
+    </div>
+
+
+
+    <div
+        class="hover:shadow-lg hover:shadow-gold shadow shadow-gold  rounded-md flex flex-1 items-center p-4 transition duration-500 ease-in-out transform hover:-translate-y-2 py-6 mt-3">
+        <div class="flex-1 pl-1 mr-16">
+            <div class="font-medium text-xl text-gray-300">
+                {{TotalValue}}
+            </div>
+            <p class="text-gray-400">Total Withdraws Balance</p>
+        </div>
+        <div class="text-gray-300 text-bold flex flex-col mr-10 p-2">
+            <mat-icon>file_upload</mat-icon>
+        </div>
+    </div>
+
+
+    <div class="mt-10 bg-gray-900 shadow-md shadow-gold rounded-md">
+        <div mat-subheader class="font-bold text-xl pl-5 py-5 text-gray-100">Withdrawals</div>
+        <mat-divider></mat-divider>
+        <div class="md:p-10 p-5">
+            <div class="currency_table responsive-table">
+                <table class="styled-table">
+                    <thead>
+                        <tr back>
+                            <td>
+                                confirmation
+                            </td>
+                            <td>
+                                Amount
+                            </td>
+                            <td>
+                                Investment Id
+                            </td>
+                            <td>
+                                Wallet Address
+                            </td>
+
+                            <td>
+                                Action
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let vest of partWithdawls">
+                            <td>{{vest.confirmation}}</td>
+                            <td>{{vest.amount}}</td>
+                            <td>{{vest.investmentId}}</td>
+                            <td>{{vest.wallet}}</td>
+                            <td>
+                                <button mat-raised-button (click)="delete_part_withdrawal(vest._id)">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="pb-20"></div>
+
+
+
+</div>

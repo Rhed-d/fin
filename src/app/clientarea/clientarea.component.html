@@ -1,0 +1,103 @@
+<span *ngIf="showPage">
+  <mat-sidenav-container>
+    <mat-sidenav #drawer mode="over" [fixedInViewport]="true">
+      <div class="bg-black md:pr-10 md:pb-100 text-gray-700 w-64 min-h-screen">
+        <div class="pt-10 pb-5 sm:text-xl uppercase">
+          <a href="/" class="ml-20 text-gray-700 bg-black">
+            <img src="../../assets/logoIcon.PNG" class="w-14 h-14 align-middle justify-center mx-auto bg-black">
+          </a>
+        </div>
+        <div class="menu-items">
+          <mat-divider>
+          </mat-divider>
+          <div *ngFor="let menu of menuData" class="animate__animated animate__slideInDown cursor-pointer mt-10 text-gray-200" [routerLink]="[menu.link]"
+            routerLinkActive="bg-gray-900 rounded-r-lg" (click)="drawer.toggle()">
+            <div class="py-3">
+
+              <span class="pl-5 grid grid-cols-4 items-center">
+                <mat-icon>{{menu.icon}}</mat-icon>
+                <span class="col-span-3">
+                  {{menu.name}}
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <mat-divider>
+          </mat-divider>
+
+          <div class="pt-10 text-gray-200 w-full">
+            <div class="pl-5 grid grid-cols-4 pb-10 cursor-pointer" (click)="logout()">
+              <mat-icon>logout</mat-icon>
+              <span class="col-span-3"> Log Out</span>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </mat-sidenav>
+
+
+    <mat-sidenav-content>
+      <div class="w-full m-0 float-left">
+        <div class="w-full fixed z-50">
+          <mat-toolbar class="bg-gradient-to-r from-black to-gold text-white h-20 flex justify-between">
+            <button
+              class="inline-flex items-center justify-center p-2 rounded text-gray-400 hover:text-white hover:bg-gold focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow"
+              aria-expanded="false" (click)="drawer.toggle()">
+              <span class="sr-only">Open main menu</span>
+              <!-- Icon when menu is closed. -->
+              <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <!-- Icon when menu is open. -->
+              <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+
+            <div [routerLink]="['profile']">
+              <svg xmlns="http://www.w3.org/2000/svg" class="inline text-white" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+            </div>
+          </mat-toolbar>
+        </div>
+        <div class="h-20"></div>
+
+        <div class="grid grid-cols-12 bg-gray-900 md:px-5 px-2">
+          <div class="md:col-span-2 col-span-12 py-2">
+            <span class="text-2xl font-bold text-gray-300 inline">Hello, </span>
+            <span class="text-xl font-bold text-gold capitalize">{{UserInfo.firstName}}</span>
+          </div>
+          <div class="md:col-span-10 col-span-12">
+            <mat-divider></mat-divider>
+            <price-ticker></price-ticker>
+            <mat-divider></mat-divider>
+          </div>
+        </div>
+
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+
+        <mat-divider></mat-divider>
+      </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</span>
+
+<span *ngIf="!showPage">
+  <div class="h-full w-full flex justify-center items-center">
+    <img src="../../assets/logoIcon.PNG" class="w-20 h-20 mx-auto animate-pulse">
+  </div>
+</span>

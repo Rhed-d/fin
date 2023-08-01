@@ -1,0 +1,170 @@
+<div class="bg-gray-50 min-h-screen">
+    <mat-stepper [linear]="true" #stepper>
+
+        <mat-step [stepControl]="firstFormGroup">
+
+            <ng-template matStepLabel>Payment Type</ng-template>
+            <form [formGroup]="firstFormGroup">
+                <div class="grid md:grid-cols-2 grid-cols-1 justify-around items-center md:gap-5 gap-10 mt-10">
+                    <div class="bg-white shadow-lg shadow-ocean w-full p-5 rounded-md hover:text-ocean">
+                        <div class="grid grid-cols-12 gap-5">
+                            <div class="col-span-2 w-full border-r flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                                    <path fill="none" d="M0 0h24v24H0z" />
+                                    <path
+                                        d="M17.5 2.474L23 12l-5.5 9.526h-11L1 12l5.5-9.526h11zm-1.155 2h-8.69L3.309 12l4.346 7.526h8.69L20.691 12l-4.346-7.526zM8.634 8.17l1.732-1 5 8.66-1.732 1-5-8.66z" />
+                                </svg>
+                            </div>
+                            <div class="col-span-6 md:text-xl text-sm font-bold text-nevy">
+                                Crypto Payment
+
+                                (Instant Deposit)
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
+
+                        <div class="flex justify-end pt-3">
+                            <button mat-raised-button color="primary" (click)="maketype('instant')" matStepperNext>
+                                Select
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white shadow-lg shadow-ocean w-full p-5 rounded-md hover:text-ocean">
+                        <div class="grid grid-cols-12 gap-5">
+                            <div class="col-span-2 w-full border-r flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                                    <path fill="none" d="M0 0h24v24H0z" />
+                                    <path
+                                        d="M17.5 2.474L23 12l-5.5 9.526h-11L1 12l5.5-9.526h11zm-1.155 2h-8.69L3.309 12l4.346 7.526h8.69L20.691 12l-4.346-7.526zM8.634 8.17l1.732-1 5 8.66-1.732 1-5-8.66z" />
+                                </svg>
+                            </div>
+                            <div class="md:col-span-6 col-span-8 md:text-xl text-sm font-bold text-nevy">
+                                Assisted Payment
+
+                                (3 to 5 working days)
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
+
+                        <div class="flex justify-end pt-3">
+                            <button mat-stroked-button color="warn" (click)="maketype('help')" matStepperNext>
+                                Select
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </mat-step>
+
+        <mat-step [stepControl]="secondFormGroup">
+            <ng-template matStepLabel>Select Amount</ng-template>
+            <form [formGroup]="secondFormGroup">
+                <div class="pb-10 pt-20">
+                    <div class="md:w-10/12 w-full mx-auto shadow-md shadow-ocean rounded-md">
+                        <div class="w-full justify-around px-5 py-10">
+                            <div class="">
+                                <p class="text-gray-500 pb-2 text-sm">
+                                    Payment method
+                                </p>
+                                <mat-form-field appearance="fill" *ngIf="paymentType === 'instant'" class="w-full">
+                                    <mat-label>Select Coin</mat-label>
+                                    <mat-select formControlName="paymentType" (ngModelChange)="getSelectedCoin()">
+                                        <mat-option>--</mat-option>
+                                        <mat-option *ngFor="let coin of coins" [value]="coin.coinName">
+                                            <span class="w-full justify-between">
+                                                {{coin.icon}} {{coin.coinName}}
+                                            </span>
+
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+
+                                <mat-form-field appearance="fill" *ngIf="paymentType !== 'instant'" class="w-full">
+                                    <mat-label>Prefered Payment Type</mat-label>
+                                    <mat-select formControlName="paymentType">
+                                        <mat-option *ngFor="let pay of assistedTypes" [value]="pay">
+                                            <span class="w-full justify-between">
+                                                {{pay}}
+                                            </span>
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                                <mat-form-field class="w-full">
+                                    <mat-label> Enter Amont</mat-label>
+                                    <input matInput formControlName="amount" (input)="assignNumber()">
+                                    <p class="text-red-500 italic text-xs">
+                                        {{amount_error}}
+                                    </p>
+                                </mat-form-field>
+
+
+                            </div>
+                            <mat-divider></mat-divider>
+                            <div class="py-5 flex justify-center">
+                                <button mat-stroked-button [disabled]="buttonIsDisabled" (click)="makeInvestment()"
+                                    *ngIf="paymentType !== 'instant'">
+                                    <a class="w-full h-full" href="javascript:void(Tawk_API.toggle())">
+                                        Make Investment
+                                    </a>
+                                </button>
+                                <button mat-stroked-button [disabled]="buttonIsDisabled" (click)="makeInvestment()"
+                                    *ngIf="paymentType === 'instant'" matStepperNext>
+                                    Make Instant Investment
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+        </mat-step>
+
+
+        <mat-step>
+            <ng-template matStepLabel>Make Payment</ng-template>
+            <div class="pb-10 pt-20">
+                <div class="md:w-10/12 w-full mx-auto shadow-md shadow-ocean rounded-md">
+                    <div class="text-gray-400 sm:text-sm text-xs text-center pt-1">
+                        Scan Code To Get {{selectedCoin.Network}} Wallet Address
+                    </div>
+
+                    <div class="flex w-full justify-center py-5">
+
+
+
+
+                        <qr-code value="{{selectedCoin.WalletAddress}}" size="300" errorCorrectionLevel="M"
+                            centerImageSrc="undifined" centerImageSize="60">
+                        </qr-code>
+                    </div>
+
+                    <div class="container pb-5">
+                        <div class="line"><mat-divider></mat-divider></div>
+                        <div class="text mat-typography">OR Copy This Wallet Address And Make Payment</div>
+                        <div class="line"><mat-divider></mat-divider></div>
+                    </div>
+
+
+                    <div
+                        class="text-gray-400 sm:text-base text-sm border border-ocean rounded text-center p-2 w-72 md:w-96 mx-auto overflow-auto">
+
+                        {{selectedCoin.WalletAddress}}
+
+                    </div>
+                    <div class="pt-1"></div>
+
+                    <mat-divider></mat-divider>
+                    <div class="py-5 flex justify-center">
+                        <button mat-raised-button routerLink="/clientarea/investment-history">
+                            Proceed
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</div>

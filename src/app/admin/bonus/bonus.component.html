@@ -1,0 +1,219 @@
+<mat-tab-group>
+  <mat-tab label="Investment">
+    <div class="pt-20 w-full">
+      <div class="sm:w-1/2 mx-auto rounded-xl border h-auto">
+        <div class="bg-indigo-800 w-full text-center font-semibold font-lg rounded-xl text-white">
+          <p class="py-2" *ngIf="showError">
+            No User found with that Email
+          </p>
+        </div>
+        <div class="mx-auto w-1/2 text-left">
+          <p class="font-semibold py-2">
+            Enter Email :
+            <input type="email" [(ngModel)]="UserMail">
+          </p>
+        </div>
+        <mat-divider></mat-divider>
+
+        <div class="mx-auto w-1/2 py-10">
+          <button mat-raised-button class="w-full" color="primary" (click)="get_user(UserMail)">CHECK</button>
+        </div>
+      </div>
+      <div class="pt-2" *ngIf="showTabel">
+        <div class="form1 mx-auto">
+          <div class="title">Load Account</div>
+          <div class="subtitle">Of {{User.firstName}}</div>
+
+
+          <div class="input-container ic2">
+            <select id="firstname" class="input" type="number" placeholder=" " [(ngModel)]="increament" (ngModelChange)="getInterval()">
+              <option *ngFor="let vest of packages" [value]="vest.percentages">
+                {{vest.packageTypes}}({{vest.percentages}})</option>
+
+            </select>
+            <div class="cut"></div>
+            <label for="firstname" class="placeholder">packageType</label>
+          </div>
+
+          <div class="input-container ic2">
+            <select id="firstname" class="input" type="text" placeholder=" " [(ngModel)]="interval">
+              <option></option>
+              <option value="days">Daily</option>
+              <option value="weeks">Weekly</option>
+              <option value="months">Monthly</option>
+              <option value="years">Yearly</option>
+            </select>
+            <div class="cut"></div>
+            <label for="firstname" class="placeholder">Interval</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="email" class="input" [(ngModel)]="amount" type="number" placeholder="$ " />
+            <div class="cut cut-short"></div>
+            <label for="email" class="placeholder">Amount</label>
+          </div>
+
+          <div class="input-container ic2">
+            <input id="email" class="input" [(ngModel)]="date" type="date" />
+            <div class="cut cut-short"></div>
+            <label for="email" class="placeholder">Date</label>
+          </div>
+          <button type="text" class="submit" (click)="load_account()">submit</button>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Ref Bonus">
+    <div class="pt-20 w-full">
+      <div class="sm:w-1/2 mx-auto rounded-xl border h-auto">
+        <div class="bg-indigo-800 w-full text-center font-semibold font-lg rounded-xl text-white">
+          <p class="py-2" *ngIf="showError">
+            No User found with that Email
+          </p>
+        </div>
+        <div class="mx-auto w-1/2 text-left">
+          <p class="font-semibold py-2">
+            Enter Email :
+            <input type="email" [(ngModel)]="UserMail">
+          </p>
+        </div>
+        <mat-divider></mat-divider>
+
+        <div class="mx-auto w-1/2 py-10">
+          <button mat-raised-button class="w-full" color="primary" (click)="get_user(UserMail)">CHECK</button>
+        </div>
+      </div>
+
+      <div class="pt-2" *ngIf="showTabel">
+        <div class="form mx-auto">
+          <div class="title">Add Ref. Bonus</div>
+          <div class="subtitle">for {{User.firstName}}</div>
+
+          <div class="input-container ic2">
+            <input id="email" class="input" [(ngModel)]="refbonus" type="number" placeholder="$ " />
+            <div class="cut cut-short"></div>
+            <label for="email" class="placeholder">Amount</label>
+          </div>
+          <button type="text" class="submit" (click)="getRefBonus()">Submit RefBonus</button>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+
+  <mat-tab label="Bonus">
+    <div class="pt-20 w-full">
+      <div class="sm:w-1/2 mx-auto rounded-xl border h-auto">
+        <div class="bg-indigo-800 w-full text-center font-semibold font-lg rounded-xl text-white">
+          <p class="py-2" *ngIf="showError">
+            No User found with that Email
+          </p>
+        </div>
+        <div class="mx-auto w-1/2 text-left">
+          <p class="font-semibold py-2">
+            Enter Email :
+            <input type="email" [(ngModel)]="UserMail">
+          </p>
+        </div>
+        <mat-divider></mat-divider>
+
+        <div class="mx-auto w-1/2 py-10">
+          <button mat-raised-button class="w-full" color="primary" (click)="get_user(UserMail)">CHECK</button>
+        </div>
+      </div>
+
+      <div class="pt-2" *ngIf="showTabel">
+        <div class="form mx-auto">
+          <div class="title">Add Bonus</div>
+          <div class="subtitle">for {{User.firstName}}</div>
+
+          <div class="input-container ic2">
+            <input id="email" class="input" [(ngModel)]="bonus" type="number" placeholder="$ " />
+            <div class="cut cut-short"></div>
+            <label for="email" class="placeholder">Amount</label>
+          </div>
+          <button type="text" class="submit" (click)=" getBonus()">submit bonus</button>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Top Up Investment">
+    <div class="pt-20 w-full">
+      <div class="sm:w-1/2 mx-auto rounded-xl border h-auto">
+        <div class="bg-indigo-800 w-full text-center font-semibold font-lg rounded-xl text-white">
+          <p class="py-2" *ngIf="showError">
+            No User found with that Email
+          </p>
+        </div>
+        <div class="mx-auto w-1/2 text-left">
+          <p class="font-semibold py-2">
+            Enter Email :
+            <input type="email" [(ngModel)]="UserMail">
+          </p>
+        </div>
+        <mat-divider></mat-divider>
+
+        <div class="mx-auto w-1/2 py-10">
+          <button mat-raised-button class="w-full" color="primary" (click)="get_user(UserMail)">CHECK</button>
+        </div>
+      </div>
+
+      <div class="pt-2" *ngIf="showTabel">
+        <div class="mx-auto">
+          <div class="text-3xl font-bold text-indigo-900 pl-5">Add Top Up</div>
+          <div class="text-xl font-bold text-gray-900 pl-5">for {{User.firstName}}</div>
+
+          <div class="input-container ic2">
+            <div class="md:-mt-16 sm:px-5">
+              <div class="w-full pt-5 px-2 sm:px-0 bg-gray-200 shadow-xl rounded-md">
+                <p class="text-center">Deposits</p>
+                <mat-divider></mat-divider>
+                <div class="currency_table responsive-table w-full px-5">
+                  <table class="styled-table w-full ">
+                    <thead>
+                      <tr>
+                        <td>
+                          Email
+                        </td>
+                        <td>
+                          Amount
+                        </td>
+                        <td>
+                          Type
+                        </td>
+                        <td>
+                          Increament
+                        </td>
+                        <td>
+                          Action
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let vest of investments; let i = index">
+                        <td>{{vest.email}}</td>
+                        <td>
+
+                          <input type="number" value="{{vest.amount}}" #amount>
+                        </td>
+                        <td>{{vest.packageType}}</td>
+                        <td>{{vest.increament}}</td>
+                        <td>
+                          <button mat-raised-button (click)="updateVest(vest._id, amount.value)">
+                            Update
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="text" class="submit" (click)=" getBonus()">submit bonus</button>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,60 @@
+<div class="w-full pt-5 bg-black  mx-auto min-h-screen md:px-5 px-2">
+
+    <div
+        class="hover:shadow-lg hover:shadow-gold shadow shadow-gold rounded-md flex flex-1 items-center p-4 transition duration-500 ease-in-out transform hover:-translate-y-2 py-6 mt-3">
+        <div class="text-bold text-gray-300">
+            Your referal link :
+
+            <div class="border border-gold rounded p-2">
+                https://www.user.financeforte.org/user/register?ref={{refCode}}
+            </div>
+        </div>
+    </div>
+
+    <div
+        class="hover:shadow-lg hover:shadow-gold shadow shadow-gold rounded-md flex flex-1 items-center p-4 transition duration-500 ease-in-out transform hover:-translate-y-2 py-6 mt-3">
+        <div class="flex-1 pl-1 mr-16">
+            <div class="font-medium text-xl text-gray-300">
+                {{userRef | currency}}
+            </div>
+            <p class="text-gray-400">Total refBonus</p>
+        </div>
+        <div class="text-gray-300 text-bold flex flex-col mr-10 p-2">
+            <mat-icon>home</mat-icon>
+        </div>
+    </div>
+
+
+    <div class="mt-10 bg-gray-900 shadow-md shadow-gold rounded-md">
+        <div mat-subheader class="font-bold text-xl pl-5 py-5 text-gray-100">Referals</div>
+        <mat-divider></mat-divider>
+        <div class="md:p-10 p-5">
+            <div class="currency_table responsive-table">
+                <table class="styled-table">
+                    <thead>
+                        <tr back>
+                            <td>
+                                First Name
+                            </td>
+                            <td>
+                                Last Name
+                            </td>
+                            <td>
+                                Joined
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let ref of referals">
+                            <td>{{ref.firstName}}</td>
+                            <td>{{ref.lastName}}</td>
+                            <td>{{ref.createdOn | date}}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

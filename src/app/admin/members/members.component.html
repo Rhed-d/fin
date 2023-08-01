@@ -1,0 +1,62 @@
+<div class="w-full md:-mt-16 px-2 sm:px-5">
+  <mat-card class="bg-indigo-50 w-full">
+    <mat-divider></mat-divider>
+
+    <div class="currency_table responsive-table w-full">
+      <table class="styled-table w-full">
+        <thead>
+          <tr>
+            <td>
+              Email
+            </td>
+            <td>
+              First name
+            </td>
+            <td>
+              Last Name
+            </td>
+            <td>
+              Date Registered
+            </td>
+            <td>
+              Action
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+         
+          <tr *ngFor="let user of users">
+            <td>{{user.email}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.createdOn | date}}</td>
+            <td>
+              <button mat-button (click)="getUser(user)" color="primary">
+                View
+              </button>
+
+              <button mat-button (click)="remove(user._id)" color="primary">
+                Delete
+              </button>
+
+              <button mat-button (click)="remove(user._id)" color="primary">
+                Block
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </mat-card>
+</div>
+
+
+
+
+
+
+
+
+
+

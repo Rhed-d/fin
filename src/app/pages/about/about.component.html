@@ -1,0 +1,130 @@
+<app-menu [sendRef]="menuref"></app-menu>
+<div class="bg-white">
+    <div class="py-10"></div>
+    <!-- <app-timeline></app-timeline> -->
+
+    <div class="mt-5" #menuref>
+    </div>
+    <div class="pt-42">
+        <div class="md:text-6xl text-4xl font-bold capitalize md:w-4/6 px-4 mx-auto py-10 text-center">
+            Involved only to be the best
+        </div>
+
+        <div class="md:w-4/6 px-4 mx-auto md:text-lg text-sm text-gray-600 font-semibold text-center">
+            Fortarium was founded by former BMC Management Head of Macro Trading and CFO Peter Morehead.
+            Fortarium's global macro strategy invested over $1 billion of institutional allocations. In 2013,
+            Finance
+            Forte created the Best blockchain hedge and venture funds in the United States.
+        </div>
+
+        <div class="py-10"></div>
+
+        <div class="grid md:grid-cols-3 grid-cols-1 md:px-5 px-2 gap-1 text-gray-100 text-center">
+            <div class="w-full py-10 px-4 bg-gray-900">
+                <div class="py-5 md:text-2xl text-xl font-bold">4</div>
+
+                <div class="text-center text-sm md:text-xl">
+                    Office locations spread across the Bay Area, New York, and Puerto Rico
+                </div>
+            </div>
+
+
+
+            <div class="w-full py-10 px-4 bg-gray-900">
+                <div class="py-5 md:text-2xl text-xl font-bold">
+                    $725 million
+                </div>
+
+                <div class="text-center text-sm md:text-xl">
+                    Fortarium Venture Funds have realized $125 million on $23 million of invested capital across
+                    26
+                    companies.
+                </div>
+            </div>
+
+
+
+            <div class="w-full py-10 px-4 bg-gray-900">
+                <div class="py-5 md:text-2xl text-xl font-bold">
+                    210
+                </div>
+
+                <div class="text-center text-sm md:text-xl">
+                    Fortarium has led about half of 210 investments since 2013.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pt-40 w-4/6 mx-auto">
+        <div class="md:text-5xl text-lg text-center font-bold text-gray-900">
+            The Fortarium team
+        </div>
+
+        <div class="pt-5 text-gray-700 font-bold text-center">
+            Finace Forte competitive edge is built on thought leadership, technical talent, and years of investing
+            exclusively in blockchain assets.
+        </div>
+    </div>
+
+
+    <div class="md:px-20 px-2 py-10">
+        <div class="grid md:grid-cols-3 grid-cols-1 gap-10">
+
+            <div class="w-full h-80 animate__animated animate__slideInUp" *ngFor="let member of teamMembers">
+
+                <div class="h-5/6 w-full bg-fred" [style.background-image]="'url('+'../../../assets/'+member.image+')'">
+                </div>
+                <div class="w-11/12 bg-gold mx-auto -mt-5 border border-black py-1 px-10">
+                    <div class="md:text-xl text-sm font-bold">
+                        {{member.name}}
+                    </div>
+                    <div class="md:text-base text-xs">
+                        {{member.office}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="py-10"></div>
+
+    <div class="py-10 bg-gray-50">
+        <div class="text-center md:text-3xl text-lg font-bold">
+            Why Choose Fortarium
+        </div>
+
+        <div class="md:w-4/6 w-full px-2 mx-auto text-center">
+            <span class="font-bold">
+                Fortarium offers $0 trading commissions, a selection of multiple no-transaction-fee mutual funds
+                and
+                top-notch research tools and mobile platform.
+            </span>
+            <span class="py-10">
+                Its zero-fee index funds and strong customer service reputation are just icing on the cake
+                Fortarium returns had aided clients, buy homes, start business, fund children education, create
+                emergency funds, save for retirement and ultimately achieve financial freedom. Throughout our
+                history,
+                we have continued to find new ways to contribute to a more equitable, resilient future for our
+                clients.
+            </span>
+        </div>
+    </div>
+
+    <div class="w-full bg-gold p-5">
+        <div class="grid grid-cols-12">
+            <div class="md:col-span-8 col-span-12 text-xl font-bold">
+                Get the latest news in blockchain and crypto
+            </div>
+
+            <div class="md:col-span-4 col-span-11 pt-5 md:pt-0">
+                <button class="border border-black bg-gray-50 py-2 shadow-md font-bold w-full md:w-1/2">
+                    Make Investment
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

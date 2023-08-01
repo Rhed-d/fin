@@ -1,0 +1,76 @@
+<div class="md:-mt-16 sm:px-5">
+  <div class="w-full pt-5 px-2 sm:px-0 bg-gray-200 shadow-xl rounded-md">
+    <p class="text-center">Deposit</p>
+    <mat-divider></mat-divider>
+    <div class="currency_table responsive-table w-full px-5">
+      <table class="styled-table w-full ">
+        <thead>
+          <tr>
+            <td>
+              Email
+            </td>
+            <td>
+              Amount
+            </td>
+            <td>
+              Type
+            </td>
+            <td>
+              Increament
+            </td>
+            <td>
+              Status
+            </td>
+
+            <td>
+              Days left
+            </td>
+            <td>
+              Current Balance
+            </td>
+            <td>
+              Wallet
+            </td>
+            <td>
+              Started
+            </td>
+            <td>
+              Action
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vest of investments">
+            <td>{{vest.email}}</td>
+            <td>{{vest.amount}}</td>
+            <td>{{vest.packageType}}</td>
+            <td>{{vest.increament}}</td>
+            <td>{{vest.confirmation}}</td>
+            <td>{{vest.days_remaining}}</td>
+            <td>{{vest.currentBalance}}</td>
+            <td>{{vest.wallet}}</td>
+
+            <td>{{vest.createdOn | date}}</td>
+            <td>
+              <button mat-raised-button *ngIf="vest.confirmation !== 'confirmed'"
+                (click)="updateVest(vest._id, 'confirmed')">
+                Confirm
+              </button>
+              <button mat-raised-button (click)="removeVest(vest._id)">
+                Delete
+              </button>
+              <span class="py-2"></span>
+              <mat-divider class="py-2"></mat-divider>
+              <mat-slide-toggle [checked]="vest.withdarwable" (click)="make_wiithdrawable(vest._id, vest.withdarwable)">
+                <span *ngIf="vest.withdarwable">Lock</span>
+
+                <span *ngIf="!vest.withdarwable">Unlock</span>
+              </mat-slide-toggle>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

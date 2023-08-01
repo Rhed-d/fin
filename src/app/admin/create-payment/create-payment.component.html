@@ -1,0 +1,118 @@
+<mat-tab-group class="sm:px-5 mt-16">
+    <mat-tab label="Send Mail">
+        <div class="sm:w-1/2 mx-auto rounded-xl border h-auto bg-indigo-50 pt-5">
+            <div class="mx-auto md:w-1/2 w-10/12  text-left">
+                <p class="font-semibold py-2">
+                    Header :
+                    <input type="text" #Header required>
+                </p>
+            </div>
+
+            <div class="mx-auto md:w-1/2 w-10/12  text-left">
+                <p class="font-semibold py-2">
+                    sender Name :
+                    <input type="text" #senderName required>
+                </p>
+            </div>
+
+            <div class="mx-auto md:w-1/2 w-10/12  text-left">
+                <p class="font-semibold py-2">
+                    subject :
+                    <input type="text" #subject required>
+                </p>
+            </div>
+
+            <div class="mx-auto md:w-1/2 w-10/12  text-left">
+                <p class="font-semibold py-2">
+                    body :
+                    <br>
+                    <textarea name="body" #body required cols="30" rows="10" class="pl-1"></textarea>
+                </p>
+            </div>
+        </div>
+
+
+        <div class="currency_table responsive-table w-10/12 mx-auto">
+            <table class="styled-table w-full mx-auto">
+                <thead>
+                    <tr>
+                        <td>
+                            Send to
+                        </td>
+                        <td>
+                            Email
+                        </td>
+                        <td>
+                            First name
+                        </td>
+                        <td>
+                            Last Name
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let user of users; let i = index">
+                        <td><input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600"
+                                (change)="addRecipiant(user.email,user.firstName, i)"></td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button mat-raised-button class="w-10/12 mx-auto" color="primary"
+                (click)="sendMessage(Header.value, senderName.value, subject.value, body.value )">Submit</button>
+        </div>
+    </mat-tab>
+    <mat-tab label="View Mails">
+        <div class="">
+            <div class="rounded-lg bg-white shadow-lg">
+                <div class="md:-mt-16 sm:px-5">
+                    <div class="w-full pt-5 px-2 sm:px-0 bg-gray-200 shadow-xl rounded-md">
+                        <p class="text-center">Deposit</p>
+                        <mat-divider></mat-divider>
+                        <div class="currency_table responsive-table w-full px-5">
+                            <table class="styled-table w-full ">
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            Header
+                                        </td>
+                                        <td>
+                                            Sender
+                                        </td>
+                                        <td>
+                                            Subject
+                                        </td>
+                                        <td>
+                                            Body
+                                        </td>
+                                        <td>
+                                            Recipitans
+                                        </td>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let vest of mails">
+                                        <td>{{vest.Header}}</td>
+                                        <td>{{vest.senderName}}</td>
+                                        <td>{{vest.subject}}</td>
+                                        <td>{{vest.body}}</td>
+                                        <td>
+                                            <div class="p-5" *ngFor="let mail of vest.recipiants">
+                                                {{mail.email}}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>

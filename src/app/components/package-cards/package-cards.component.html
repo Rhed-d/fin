@@ -1,0 +1,45 @@
+<div class="shadow-lg shadow-gold md:w-full p-5 rounded-md hover:text-ocean w-full">
+    <div class="grid grid-cols-12 gap-5">
+        <div class="col-span-2 w-full border-r flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                    d="M17.5 2.474L23 12l-5.5 9.526h-11L1 12l5.5-9.526h11zm-1.155 2h-8.69L3.309 12l4.346 7.526h8.69L20.691 12l-4.346-7.526zM8.634 8.17l1.732-1 5 8.66-1.732 1-5-8.66z" />
+            </svg>
+        </div>
+        <div class="col-span-4 md:text-2xl text-sm font-bold text-gray-400">
+            {{package.packageTypes}}
+        </div>
+    </div>
+    <div class="py-5 text-gray-300 md:text-sm text-xs font-bold">
+        <p class="pt-1.5">
+            {{package.percentages}}% Daily ROI
+        </p>
+
+        <p class="pt-1.5">
+            Minimum: {{package.minValue}}
+        </p>
+
+        <p class="pt-1.5">
+            Maximum: {{package.maxValue}}
+        </p>
+
+        <p class="pt-1.5">
+        </p>
+
+    </div>
+
+    <mat-divider>
+    </mat-divider>
+
+    <div class="flex justify-between pt-3">
+        <button mat-raised-button [routerLink]="[package.packageTypes]" color="primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="inline">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                    d="M3.741 1.408l18.462 10.154a.5.5 0 0 1 0 .876L3.741 22.592A.5.5 0 0 1 3 22.154V1.846a.5.5 0 0 1 .741-.438zM5 13v6.617L18.85 12 5 4.383V11h5v2H5z" />
+            </svg>
+            Invest
+        </button>
+    </div>
+</div>

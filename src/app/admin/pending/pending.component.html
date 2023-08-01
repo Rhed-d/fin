@@ -1,0 +1,109 @@
+<mat-tab-group class="sm:px-5 mt-16">
+  <mat-tab label="Deposit">
+    <div class="pt-10">
+      <div class="w-full pt-5 px-2 sm:px-0">
+        <p class="text-center">Pending Deposits</p>
+        <mat-divider></mat-divider>
+        <div class="currency_table responsive-table w-full">
+          <table class="styled-table w-full">
+            <thead>
+              <tr>
+                <td>
+                  Email
+                </td>
+                <td>
+                  Amount
+                </td>
+                <td>
+                  Coin
+                </td>
+                <td>
+                  Started
+                </td>
+
+                <td>
+                  Type
+                </td>
+                <td>
+                  Action
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let vest of pendingInvestments">
+                <td>{{vest.email}}</td>
+                <td>{{vest.amount}}</td>
+                <td>{{vest.coinName}}</td>
+                <td>{{vest.createdOn | date}}</td>
+                <td>{{vest.packageType}}</td>
+                
+                <td>
+                  <button mat-raised-button (click)="updateVest(vest._id, 'confirmed')">
+                    Confirm
+                  </button>
+                  <button mat-raised-button (click)="removeVest(vest._id)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+
+
+  <mat-tab label="Withdrawals">
+    <div class="pt-10">
+      <div class="w-full pt-5 px-2 sm:px-0">
+        <p class="text-center">Pending Withdraws</p>
+        <mat-divider></mat-divider>
+        <div class="currency_table responsive-table w-full">
+          <table class="styled-table w-full">
+            <thead>
+              <tr>
+                <td>
+                  Email
+                </td>
+                <td>
+                  Amount
+                </td>
+                <td>
+                  Coin
+                </td>
+                <td>
+                  Started
+                </td>
+                <td>
+                  Wallet
+                </td>
+                <td>
+                  Action
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let vest of withdrawedInvestment">
+                <td>{{vest.email}}</td>
+                <td>{{vest.amount + vest.currentBalance}}</td>
+                <td>{{vest.coinName}}</td>
+                <td>{{vest.createdOn | date}}</td>
+                <td>{{vest.wallet}}</td>
+                <td>
+                  <button mat-raised-button (click)="updateVest(vest._id, 'withdraw')">
+                    Confirm
+                  </button>
+                  <button mat-raised-button (click)="removeVest(vest._id)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

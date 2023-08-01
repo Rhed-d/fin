@@ -1,0 +1,13 @@
+.bg-white {
+    background-image: url("../../../assets/bg-white.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+@media only screen and (min-width: 600px) {
+    .text-8 {
+        font-size: 5.5rem;
+        line-height: 1;
+    }
+}

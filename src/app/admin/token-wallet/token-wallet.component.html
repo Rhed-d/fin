@@ -1,0 +1,81 @@
+<div class="w-10/12 mx-auto h-full mt-5 py-10" #topPage>
+    <mat-card class="w-full h-full">
+        <mat-card-header>
+            <mat-card-title>
+                Add Tokens
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form [formGroup]="token">
+
+
+                <mat-form-field appearance="outline" class="md:w-10/12 w-11/12">
+                    <mat-label>Coin Name</mat-label>
+                    <input matInput formControlName="coinName">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="md:w-10/12 w-11/12">
+                    <mat-label>Wallet Address</mat-label>
+                    <input matInput formControlName="WalletAddress">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="md:w-10/12 w-11/12">
+                    <mat-label>Network</mat-label>
+                    <input matInput formControlName="Network">
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+
+        <mat-card-footer>
+            <div class="w-1/2 mx-auto md:w-1/4" *ngIf="spinning">
+                <mat-spinner></mat-spinner>
+            </div>
+
+            <div class="md:w-1/2 mx-auto w-10/12" *ngIf="!spinning">
+                <button *ngIf="!update" mat-raised-button color="primary" class="w-full"
+                    (click)="addPackage()">Add</button>
+                <button *ngIf="update"
+                    class="bg-transparent border border-solid border-blue-500 bg-yellow-600 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 w-full py-2 rounded outline-none text-center focus:outline-none mr-1 mb-1"
+                    type="button" style="transition: all .15s ease" (click)="udatePackage()">
+                    Update
+                </button>
+            </div>
+            <div class="pb-10"></div>
+        </mat-card-footer>
+    </mat-card>
+    <div class="pb-20"></div>
+
+
+    <div class="text-3xl text-gray-700 text-center border-b-2 border-solid border-gray-800">
+        Current Token
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="rounded-md shadow-lg mt-10 bg-indigo-100 px-5 break-words"
+            *ngFor="let token of tokens; let i = index">
+
+            <div class="font-bold text-2xl p-5 text-center">
+                {{token.coinName}}
+            </div>
+            <mat-divider></mat-divider>
+            <div class="font-bold pl-1 py-3 text-lg">Network : {{token.Network}}</div>
+            <mat-divider></mat-divider>
+            <div class="font-bold pl-1 pb-2 py-3 text-lg">Wallet Address : {{token.WalletAddress}}</div>
+            <mat-divider></mat-divider>
+            <div class="w-full rounded-mdn mt-20">
+                <button
+                    class="bg-transparent border border-solid border-blue-500 bg-yellow-600 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 w-full py-2 rounded outline-none text-center focus:outline-none mr-1 mb-1"
+                    type="button" style="transition: all .15s ease" (click)="editPackage(i)">
+                    Edit
+                </button>
+
+                <button
+                    class="bg-transparent border border-solid border-blue-500 bg-red-700 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 w-full py-2 rounded outline-none text-center focus:outline-none mr-1 mb-1"
+                    type="button" style="transition: all .15s ease" (click)="deleteToken(token._id)">
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

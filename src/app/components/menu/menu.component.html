@@ -1,0 +1,101 @@
+<div class="relative md:flex hidden shadow space-between">
+    <div class="absolute left-20 top-5">
+        <a routerLink="/">
+            <div class="">
+                <img src="../../../assets/logoIcon.PNG" class="w-14 h-14" />
+            </div>
+        </a>
+    </div>
+
+    <div class="text-gold uppercase font-bold md:text-3xl text-xl absolute left-52 top-7">Fortarium</div>
+
+    <div class="flex justify-around absolute right-5 w-1/2 top-10 font-bold text-base">
+
+
+        <a routerLink="/">
+            Home
+        </a>
+
+        <a routerLink="/about">
+            About
+        </a>
+
+        <a routerLink="/contact_us">
+            Contact Us
+        </a>
+
+        <a routerLink="/faq">
+            FAQs
+        </a>
+
+        <a routerLink="/Privacy_Policy">
+            Privacy Policy
+        </a>
+
+
+        <a routerLink="/clientarea/dashboard" *ngIf="isUser">
+            Dashboard
+        </a>
+        <!-- <div class="hover:cursor-pointer">
+            <div id="basic-button" aria-controls={open ? 'basic-menu' : undefined} aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined} onMouseOver={handleClick}>
+                Join
+            </div>
+            <Menu id="basic-menu" anchorEl={anchorEl} open={open} onClose={handleClose} MenuListProps={{ onMouseLeave:
+                handleClose }}>
+                <MenuItem>
+                <a class="w-full h-full" routerLink={'/users/register?joint'}>
+                Joint Account
+                </a>
+                </MenuItem>
+                <MenuItem>
+                <a class="w-full h-full" routerLink={'/users/register?single'}>
+                Single Account
+                </a>
+                </MenuItem>
+            </Menu>
+        </div> -->
+
+
+
+
+        <a routerLink="/users/login" *ngIf="!isUser">
+            Login
+        </a>
+    </div>
+</div>
+
+<input type="checkbox" id="active" />
+<div class="flex relative md:hidden">
+    <div class="pl-5 py-2.5 fixed w-full transition ease-in-out delay-150 duration-500"
+        [ngClass]="isVisible ? '': 'bg-gray-50'">
+        <img src="../../../assets/logoIcon.PNG" class="w-12 h-12" />
+    </div>
+    <label for="active" class="menu-btn fixed"><span></span></label>
+    <label for="active" class="close"></label>
+</div>
+
+<div class="text-gold uppercase font-bold text-lg fixed left-28 top-6 md:hidden">Fortarium</div>
+
+
+<div class="wrapper">
+    <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li>
+            <a routerLink="/about">About</a>
+        </li>
+        <li><a routerLink="/contact_us">Contact</a></li>
+
+        <li><a routerLink="/faqs">FAQs</a></li>
+
+        <li>
+            <a routerLink="/Privacy_Policy">
+                Policies
+            </a>
+        </li>
+        <li *ngIf="isUser"><a routerLink="/clientarea/dashboard">Dashboard</a></li>
+        <li *ngIf="!isUser"><a routerLink="/users/login">Login</a></li>
+        <li *ngIf="!isUser"><a routerLink="/users/register">Register</a></li>
+
+    </ul>
+</div>

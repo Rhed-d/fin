@@ -1,0 +1,32 @@
+<div class="md:px-4 px-2 bg-black block min-h-screen/2 pb-20" *ngIf="loaded">
+    <mat-tab-group backgroundColor="primary" color="primary">
+        <mat-tab class="mt-5">
+            <ng-template mat-tab-label> FF-CFT </ng-template>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <app-package-cards *ngFor="let package of Crypto" [package]="package"></app-package-cards>
+            </div>
+        </mat-tab>
+        <mat-tab class="mt-5">
+            <ng-template mat-tab-label> FF-FXF </ng-template>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <app-package-cards *ngFor="let package of Agro" [package]="package"></app-package-cards>
+            </div>
+        </mat-tab>
+        <mat-tab class="mt-5">
+            <ng-template mat-tab-label> FF-LTF </ng-template>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <app-package-cards *ngFor="let package of Real_estate" [package]="package"></app-package-cards>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+
+
+<div class="w-full bg-gray-900 h-screen/9" *ngIf="!loaded">
+    <div class="h-full w-full flex justify-center items-center">
+        <img src="../../assets/logoIcon.PNG" class="w-20 h-20 mx-auto animate-pulse rounded-full">
+    </div>
+</div>

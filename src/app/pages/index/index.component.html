@@ -1,0 +1,218 @@
+<app-menu [sendRef]="menuref"></app-menu>
+
+<div class="bg-white w-full">
+
+    <div class="mt-2" #menuref></div>
+
+    <div class="md:pl-14 pl-2">
+        <div class="pt-32 pr-3 md:pr-0 text-8 text-4xl font-bold text-left md:w-3/4  text-gray-900">
+            Award winning U.S. institutional asset manager focused exclusively on blockchain technology, Foreign
+            exchange and the decentralized real estate market.
+        </div>
+
+        <div class="md:text-xl text-sm font-bold text-gray-600 py-5 text-left md:w-3/4">
+            Since 2015, Fortarium has invested in digital
+            assets, blockchain network, foreign exchange and decentralized real estate companies, providing investors
+            with the full spectrum of exposure to their user friendly interface.
+        </div>
+
+        <div class="md:w-1/2 grid grid-cols-2 pr-2  gap-2 font-bold pt-5 pb-10">
+            <button class="w-full border border-black bg-gray-50 py-2 shadow-md" routerLink="/users/login">
+                Join Us
+            </button>
+
+            <button class="w-full border border-black bg-gray-50 py-2 shadow-md" *ngIf="isUser"
+                routerLink="/clientarea/invest">
+                Fund Account
+            </button>
+
+            <button class="w-full border border-black bg-gray-50 py-2 shadow-md" *ngIf="!isUser"
+                routerLink="/users/register">
+                Get Started
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <div class="grid md:grid-cols-2 grid-cols-1 md:gap-0 gap-10 animate__animated animate__slideInUp">
+        <div class="w-full bg-gray-900 md:p-10 px-5 py-10 md:pt-20 mb:pb-10">
+            <div class="md:text-5xl text-xl text-left text-gray-50 uppercase font-extrabold">
+                A HISTORY OF CONQUESTS
+            </div>
+
+            <div class="text-gray-50 text-left pt-5 md:text-lg text-sm">
+                Fortarium launched one of the the first cryptocurrency fund in the U.S. when bitcoin was at $350
+                /BTC in 2015. The firm subsequently launched a multimillion blockchain-focused venture fund and as the
+                year progressed Fortarium investors grew massively in numbers. Fortarium's CIO co-founded one of
+                the first decentralized applications built on Ethereum. In 2017, Fortarium was the first to offer a
+                crypto funded foreign exchange fund, shortly after Fortarium joined the Decentralized real estate
+                market creating Fortarium's highest ROI Fund.
+            </div>
+        </div>
+
+
+        <div class="w-full bg-gray-900 md:p-10 px-5 md:pt-20 mb:pb-10 py-10 grid grid-cols-1 gap-10">
+            <div class="grid grid-cols-3">
+                <div class="text-center">
+                    <span class="text-gold font-extrabold md:text-4xl text-xl text-center">
+                        $1.7bn </span>
+                    <div class="text-center text-gray-50 md:text-lg text-sm">
+                        Assets Under Management
+                    </div>
+                </div>
+
+
+                <div class="text-center">
+                    <span class="text-gold font-extrabold md:text-4xl text-xl text-center">3</span>
+                    <div class="text-center text-gray-50 md:text-lg text-sm">
+                        Fund
+                        Strategies
+                    </div>
+                </div>
+
+
+                <div class="text-center">
+                    <span class="text-gold font-extrabold md:text-4xl text-xl text-center"> 100%</span>
+                    <div class="text-center text-gray-50 md:text-lg text-sm">
+                        Deals Led
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="grid grid-cols-3">
+                <div class="text-center">
+                    <span class="text-gold font-extrabold md:text-4xl text-xl text-center"> 100 </span>
+                    <div class="text-center text-gray-50 md:text-lg text-sm">
+                        Venture
+                        Investments
+                    </div>
+                </div>
+
+
+                <div class="text-center">
+                    <span class="text-gold font-extrabold md:text-4xl text-xl text-center">
+                        110
+                    </span>
+                    <div class="text-center text-gray-50 md:text-lg text-sm">
+                        Early-Stage Token Investments
+                    </div>
+                </div>
+
+
+                <div class="text-center">
+                    <span class="text-gold font-extrabold md:text-4xl text-xl text-center">37%</span>
+                    <div class="text-center text-gray-50 md:text-lg text-sm">
+                        Investments Outside U.S.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-10"></div>
+
+    <div class="md:pt-20 pt-10 px-2 md:px-10 bg-gray-50">
+        <div class="text-center text-gray-900 md:text-5xl text-xl font-bold pb-5">
+            Investment types
+        </div>
+
+        <div class="flex justify-center">
+            <button class="w-full border border-black mx-auto bg-gray-50 py-2 shadow-md md:w-3/12 font-bold"
+                routerLink="/clientarea/invest">
+                Make Investment
+            </button>
+        </div>
+
+
+        <div class="pt-10 grid md:grid-cols-3 grid-cols-1 gap-5 text-gray-700">
+            <div class="md:border-y border-t border-black animate__animated animate__slideInUp">
+                <div class="md:text-xl text-sm text-left font-bold pt-5 pb-8 ">
+                    FORTARIUM LTF
+                    <br />
+                    <div class="md:text-sm text-xs">
+                        Liquidity: End of term
+                        <br />
+                        Assets: Real estate holdings
+                    </div>
+                </div>
+
+                <div class="text-left md:text-sm text-xs">
+                    This is a long term fund (LTF) targeted at decentralized real estate investment ventures for both
+                    U.S and non U.S residents actively regulated, with multi-strategy not exclusive to rental real
+                    estate, house flip contracts among other company strategies. The fund is predominantly driven by a
+                    discretionary strategy focused on decentralized financed projects and adjacent assets.
+                </div>
+            </div>
+
+
+            <div class="md:border-y border-t  border-black pb-5 animate__animated animate__slideInUp">
+                <div class="md:text-xl text-sm text-left font-bold pt-5 pb-8 ">
+                    FORTARIUM CTF
+                    <br />
+                    <div class="md:text-sm text-xs">
+                        Liquidity: End of term
+                        <br />
+                        Assets: Venture equity, early stage token, cryptocurrencies, Bitcoin, NFTs, liquid tokens.
+
+                    </div>
+                </div>
+
+                <div class="text-left md:text-sm text-xs">
+                    It is a passive tracker of Bitcoin and other cryptocurrencies. The Fund provides quick and secure
+                    access to bitcoin and other cryptocurrencies while removing the burden of buying and safekeeping
+                    coins and also cancels out the risk involved in trading, experience exposure to the largest and most
+                    liquid digital assets. We use our deep market and technical expertise to trade tokens while
+                    exploiting market
+                    inefficiencies. Fortarium CTF Fund offers investors steady liquidity and low fee structure.
+                    The Fund is formally structured as a Cayman hedge fund and is available to both U.S. and non-U.S.
+                    investors. Exposure to the largest and most liquid digital assets. We use our deep
+                    market and technical expertise to trade tokens while exploiting market
+                    inefficiencies.
+                </div>
+            </div>
+
+
+            <div class="md:border-y border-t  border-black pb-5 animate__animated animate__slideInUp">
+                <div class="md:text-xl text-sm text-left font-bold pt-5 pb-8">
+                    FORTARIUM FXF
+                    <br />
+                    <div class="md:text-sm text-xs">
+                        Liquidity: End of term
+                        <br />
+                        Assets: Forex Currencies/Pairs
+                    </div>
+                </div>
+
+                <div class="text-left md:text-sm text-xs">
+                    Fortarium is a registered broker but more than just a regular broker. We understand each client
+                    has a unique set of financial complexities and long-term goals. That's why we offer a full suite of
+                    services to help protect, grow or transfer your wealth, and address all aspects of your financial
+                    life. Our team of expert traders and analysts take advantage of the market around the clock placing
+                    low profit margins trades but at a very high volume so barely any negative trades and our investors
+                    returns are assured.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-10"></div>
+    <div class="w-full bg-gold p-5">
+        <div class="grid grid-cols-12">
+            <div class="md:col-span-8 col-span-12 text-xl font-bold">
+                Get the latest news in blockchain and crypto
+            </div>
+
+            <div class="md:col-span-4 col-span-11 pt-5 md:pt-0">
+                <button class="border border-black bg-gray-50 py-2 shadow-md font-bold w-full md:w-1/2"
+                    [routerLink]="['/about']">
+                    Read More
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
